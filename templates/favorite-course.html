@@ -1,11 +1,18 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}Favorite Course{% endblock %}</title>
 </head>
 <body>
-
-
+{% block content %}
+<h1>Favorite Courses</h1>
+{% if subject and course_number %}
+<p>You entered your favorite course as: {{ subject }} {{ course_number }}</p>
+{% else %}
+<p>No favorite course provided</p>
+{% endif %}
+{% endblock %}
 </body>
 </html>

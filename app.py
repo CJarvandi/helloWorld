@@ -15,10 +15,13 @@ if __name__ == '__main__':
 
 @app.route('/favorite-course')
 def fCourse():
-    print('Course: ' + request.args.get('course'))
-    print('Grade: ' + request.args.get('grade'))
+    print('Subject: ' + request.args.get('Subject'))
+    print('Course_number: ' + request.args.get('Course Number'))
     return render_template('favorite-course.html')
 
-@app.route('/contact')
-def Contact():
-    return render_template('Contact.html')
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == 'POST':
+        return render_template('contact.html', form_submitted=True)
+    else:
+        return render_template('contact.html')
