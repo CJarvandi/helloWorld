@@ -22,6 +22,13 @@ login_manager.init_app(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+@app.route('/training')
+@login_required
+@role_required(['ADMIN', 'MANAGER'])
+def training():
+    return render_template('training.html')
+
+
 
 @app.route('/')
 def home():
